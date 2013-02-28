@@ -41,3 +41,9 @@ div.controls select#contract_contractendon_2i{
 div.controls select#contract_contractendon_3i{
 	width: 60px;
 }
+
+a.brand{
+	font-size: 2.5em !important;
+	font-weight: 900 !important;
+	color: #618872 !important;
+}
