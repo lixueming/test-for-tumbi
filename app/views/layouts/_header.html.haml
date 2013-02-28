@@ -5,14 +5,11 @@
 				%span.icon-bar
 				%span.icon-bar
 				%span.icon-bar
-			%a.brand{:href => "#"}= image_tag("Tumbi.jpg")
+			%a.brand{:href => "#"} Tumbi
 			.nav-collapse.collapse{:style => "height: 0px;"}
 				%ul.nav
 					%li.active
-						=link_to "Rental Contracts", contracts_path						
-				
-				/	%li
-				/		=link_to "About", home_about_us_path
+						=link_to "Rental Contracts", contracts_path										
 				#log_status.pull-right
 					- if user_signed_in?
 						%span
@@ -23,4 +20,4 @@
 						= link_to "Register", new_user_registration_path
 						|
 						= link_to "Log in", new_user_session_path
-			/ /.nav-collapse
+
