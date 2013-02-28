@@ -1,0 +1,36 @@
+- model_class = Contract
+.page-header
+	%h2=t '.title', :default => model_class.model_name.human.pluralize
+%table.table.table-striped
+	%thead
+		%tr
+			%th= model_class.human_attribute_name(:id)
+			%th= model_class.human_attribute_name(:name)
+			%th= model_class.human_attribute_name(:address)
+			%th= model_class.human_attribute_name(:contractendon)
+			%th= model_class.human_attribute_name(:longitude)
+			%th= model_class.human_attribute_name(:latitude)
+			%th= model_class.human_attribute_name(:fences)
+			%th=t '.actions', :default => t("helpers.actions")
+	%tbody
+		- @contracts.each do |contract|
+			%tr
+				%td= link_to contract.id, contract_path(contract)
+				%td= contract.name
+				%td= contract.address
+				%td= contract.contractendon
+				%td= contract.longitude
+				%td= contract.latitude
+				%td= contract.fences
+				%td
+					= link_to t('.edit', :default => t("helpers.links.edit")), edit_contract_path(contract), :class => 'btn btn-mini'
+					= link_to t('.destroy', :default => t("helpers.links.destroy")), contract_path(contract), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
+
+= link_to t('.new', :default => t("helpers.links.new")), new_contract_path, :class => 'btn btn-primary'
+
+%br
+%br
+%h2.title Map
+= gmaps4rails(@json)
+
+= yield :scripts
